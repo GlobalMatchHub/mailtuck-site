@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mailtuck.lifeinsight-365.com/mailtuck/sitemap.xml

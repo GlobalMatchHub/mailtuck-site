@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy Policy — Mailtuck</title>
+<meta name="description" content="Privacy policy for Mailtuck, the Gmail add-on that saves emails and attachments to Notion.">
+<meta name="application-name" content="Mailtuck">
+<meta property="og:title" content="Mailtuck">
+<meta property="og:site_name" content="Mailtuck">
+<meta property="og:description" content="Privacy policy for Mailtuck, the Gmail add-on that saves emails and attachments to Notion.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Mailtuck","description":"Privacy policy for Mailtuck, the Gmail add-on that saves emails and attachments to Notion.","applicationCategory":"BusinessApplication","operatingSystem":"Web"}</script>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 6rem;
+         font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e8e8e8; background: #16171a; } }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 2.25rem 0 .5rem; }
+  .meta { color: #888; font-size: .875rem; margin-bottom: 2.5rem; }
+  p, li { margin: .6rem 0; }
+  a { color: inherit; }
+  footer { margin-top: 4rem; color: #888; font-size: .875rem; }
+</style>
+</head><body>
+<h1>Privacy Policy</h1>
+<p class="meta">Mailtuck &middot; sellerkit &middot; Version 1.0, effective 17 August 2026</p>
+
+<p><strong>Mailtuck</strong> saves the email you have open in Gmail&trade;, together with its
+attachments, into a Notion database you choose. This page states exactly what it touches.</p>
+
+<h2>1. We run no server and keep no copy of your mail</h2>
+<p>Mailtuck runs inside Google Apps Script under your own Google account. Your email travels from
+Google to Notion and nowhere else. It never passes through a server belonging to us, because we do
+not operate one. We hold no copy of your messages, so there is nothing on our side to breach.</p>
+
+<h2>2. What Mailtuck can read</h2>
+<ul>
+  <li><strong>Only the message you currently have open</strong>, via Google's
+      <code>gmail.addons.current.message.readonly</code> permission. This is a narrow, contextual
+      permission &mdash; it does not grant access to your mailbox, your search history, or any other
+      message.</li>
+</ul>
+<p>Mailtuck does <strong>not</strong> request permission to read your whole mailbox, your Google
+Drive, your contacts, or your calendar. Those permissions are absent from its manifest, so it
+cannot use them even if asked to.</p>
+
+<h2>3. What Mailtuck writes to Notion</h2>
+<p>When you press Save, it creates one page in the Notion database you selected, containing the
+subject, the message text, and the attachments. Attachments larger than your Notion plan's file
+limit are not uploaded; a line naming the file is written instead, so nothing disappears silently.</p>
+
+<h2>4. Your Notion credential</h2>
+<p>Your Notion integration secret is stored in Google's per-user property store, readable only by
+your own copy of the add-on. We never receive it. Selecting &ldquo;Disconnect Notion&rdquo; deletes
+it immediately.</p>
+
+<h2>5. No tracking</h2>
+<p>No analytics, no telemetry, no advertising identifiers, no profiling. We do not sell or share
+data, because we never receive any.</p>
+
+<h2>6. Children</h2>
+<p>Mailtuck is a workplace tool and is not directed at children under 13.</p>
+
+<h2>7. Removing your data</h2>
+<p>Uninstalling the add-on removes its stored credential and settings with it. Pages already
+created stay in your Notion workspace, where you control them.</p>
+
+<h2>8. Changes</h2>
+<p>If this policy changes we will update the version and date above.</p>
+
+<h2>9. Contact</h2>
+<p><a href="mailto:globalmatchhub@gmail.com">globalmatchhub@gmail.com</a></p>
+
+<footer>Gmail&trade; and Google Workspace&trade; are trademarks of Google LLC. Notion is a
+trademark of Notion Labs, Inc. Mailtuck is an independent product, not affiliated with, endorsed
+by, or sponsored by Google or Notion Labs.<br>
+sellerkit &middot; <a href="/">legal.sellerkit.workers.dev</a></footer>
+</body></html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mailtuck — save emails to Notion</title>
+<meta name="description" content="Mailtuck saves the Gmail message you're reading, with its attachments, into a Notion database page.">
+<meta name="application-name" content="Mailtuck">
+<meta property="og:title" content="Mailtuck">
+<meta property="og:site_name" content="Mailtuck">
+<meta property="og:description" content="Mailtuck saves the Gmail message you're reading, with its attachments, into a Notion database page.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Mailtuck","description":"Mailtuck saves the Gmail message you're reading, with its attachments, into a Notion database page.","applicationCategory":"BusinessApplication","operatingSystem":"Web"}</script>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 46rem; margin: 0 auto; padding: 3rem 1.25rem 6rem;
+         font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #e8e8e8; background: #16171a; } }
+  h1 { font-size: 1.6rem; font-weight: 600; margin: 0 0 .25rem; letter-spacing: -.01em; }
+  h2 { font-size: 1.05rem; font-weight: 600; margin: 2.25rem 0 .5rem; }
+  .meta { color: #888; font-size: .875rem; margin-bottom: 2.5rem; }
+  p, li { margin: .6rem 0; }
+  a { color: inherit; }
+  footer { margin-top: 4rem; color: #888; font-size: .875rem; }
+</style>
+</head><body>
+<h1>Mailtuck</h1>
+<p class="meta">Save the email you&rsquo;re reading &mdash; with its attachments &mdash; into a Notion database.</p>
+
+<p>Reading an email you want to keep? Press one button in Gmail and it becomes a page in your Notion
+database: the subject as the title, the message text as the body, and <strong>the attachments
+uploaded into the page itself</strong>.</p>
+
+<h2>Why another one</h2>
+<p>Most Gmail-to-Notion tools were written before Notion&rsquo;s API could upload files at all. They
+either drop attachments or paste a link that later expires. Mailtuck puts the file in the page, so
+the thing you actually needed is still there next year.</p>
+
+<h2>What it does</h2>
+<ul>
+  <li>One-click save from the message you have open.</li>
+  <li>Attachments uploaded into the Notion page.</li>
+  <li>Pick any database you have connected; title, sender and date map to its columns.</li>
+  <li>A file too large for your Notion plan is named in the page with the reason &mdash; never
+      dropped in silence.</li>
+  <li>Errors written as instructions (&ldquo;reconnect Notion&rdquo;, &ldquo;share the
+      database&rdquo;), not error codes.</li>
+</ul>
+
+<h2>What it cannot see</h2>
+<p>Mailtuck reads only the message you have open, using Google&rsquo;s narrow contextual permission.
+It has no access to the rest of your mailbox, your Drive, your contacts or your calendar &mdash;
+those permissions are absent from the add-on, so it cannot use them even if asked. Your Notion token
+is kept per user inside Google&rsquo;s own add-on storage. We run no server that could hold it.</p>
+
+<h2>Getting started</h2>
+<ol>
+  <li>Install Mailtuck and open Gmail.</li>
+  <li>Open the Mailtuck panel and press <strong>Connect Notion</strong>. Choose your workspace &mdash;
+      there is no key to copy.</li>
+  <li>In Notion, open the database you want to use and grant Mailtuck access there
+      (<strong>&hellip; &rarr; Connections</strong>). Notion hides every database from every add-on
+      until you do this.</li>
+  <li>Open any email, pick the database, press <strong>Save</strong>.</li>
+</ol>
+<p>On Notion&rsquo;s free plan each file must be under 5&nbsp;MB; larger files are named in the page
+with the reason instead of being dropped.</p>
+
+<style>
+  .tier { border-top: 1px solid #e6e6e6; margin: 2.5rem 0 0; padding-top: 1.5rem; }
+  @media (prefers-color-scheme: dark) { .tier { border-color: #2c2e33; } }
+  .price { font-size: 2rem; font-weight: 600; letter-spacing: -.02em; margin: .25rem 0 0; }
+  .price span { font-size: 1rem; font-weight: 400; color: #888; }
+  table.cmp { border-collapse: collapse; width: 100%; margin: 1rem 0 0; font-size: .95rem; }
+  table.cmp th, table.cmp td { text-align: left; padding: .55rem .5rem; border-bottom: 1px solid #ededed; }
+  @media (prefers-color-scheme: dark) { table.cmp th, table.cmp td { border-color: #2c2e33; } }
+  table.cmp th:not(:first-child), table.cmp td:not(:first-child) { text-align: center; width: 5.5rem; }
+  table.cmp th { font-weight: 600; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; color: #888; }
+  .note { color: #888; font-size: .9rem; }
+</style>
+
+<div class="tier">
+<h2>Mailtuck Pro</h2>
+<p>Saving emails and attachments is free, and stays free. Pro is for the part that
+takes the typing out of it: <strong>filling your database&rsquo;s own columns</strong>.</p>
+
+<p>If your database has <em>Due</em>, <em>Amount</em>, <em>Company</em> and <em>Status</em>,
+Pro reads the email and fills those columns &mdash; not a fixed set of fields we chose,
+but the ones you actually built. The page then lists what was filled, because a value
+worth having is a value worth checking.</p>
+
+<table class="cmp">
+  <tr><th>&nbsp;</th><th>Free</th><th>Pro</th></tr>
+  <tr><td>Save the open email to Notion</td><td>&#10003;</td><td>&#10003;</td></tr>
+  <tr><td>Attachments uploaded into the page</td><td>&#10003;</td><td>&#10003;</td></tr>
+  <tr><td>Oversized files named in the page</td><td>&#10003;</td><td>&#10003;</td></tr>
+  <tr><td>Title, sender, date, link</td><td>&#10003;</td><td>&#10003;</td></tr>
+  <tr><td>Your own columns filled from the email</td><td>&mdash;</td><td>&#10003;</td></tr>
+  <tr><td>Remembered default database</td><td>&mdash;</td><td>&#10003;</td></tr>
+  <tr><td>Route by sender</td><td>&mdash;</td><td>&#10003;</td></tr>
+</table>
+
+<p class="price">$4 <span>per month, or $36 a year</span></p>
+
+<h2>You bring your own AI key</h2>
+<p>Pro uses <strong>your</strong> Anthropic API key, which you paste into the add-on once.
+The key and the email go straight from your mailbox to Anthropic. They do not pass through
+any server of ours &mdash; we do not have one that could hold them &mdash; and the usage is
+billed to your Anthropic account at their prices, not marked up by us. Reading a typical
+email costs a fraction of a cent.</p>
+<p>You can switch the filling off at any time and keep using everything else.</p>
+
+<h2>What Pro will not do</h2>
+<p>It will not read the rest of your mailbox. Saving whole threads or bulk-importing an inbox
+would need permission to read every message you have, so we left those features out on
+purpose rather than ask for that.</p>
+<p>It will not invent a column. Anything the model returns that is not already a property on
+your database is discarded, as is a value that does not fit the column&rsquo;s type. The email
+subject always stays the page title.</p>
+
+<p class="note">Pro is not on sale yet &mdash; the payment account is still being set up.
+     <a href="mailto:globalmatchhub@gmail.com?subject=Mailtuck%20Pro">Email us</a> and we will
+     tell you the day it opens.</p>
+</div>
+
+<h2>Support</h2>
+<p>Questions and bug reports: <a href="mailto:globalmatchhub@gmail.com">globalmatchhub@gmail.com</a>.
+We aim to reply within two business days.</p>
+<p><a href="/mailtuck/privacy">Privacy policy</a> &middot; <a href="/mailtuck/terms">Terms of service</a></p>
+
+<footer>Gmail&trade; and Google Workspace&trade; are trademarks of Google LLC. Notion is a trademark
+of Notion Labs, Inc. Mailtuck is an independent product and is not affiliated with, endorsed by, or
+sponsored by Google or Notion Labs.<br>
+sellerkit &middot; <a href="/">legal.sellerkit.workers.dev</a></footer>
+</body></html>
