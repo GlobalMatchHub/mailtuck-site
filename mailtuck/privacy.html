@@ -24,21 +24,23 @@
 </style>
 </head><body>
 <h1>Privacy Policy</h1>
-<p class="meta">Mailtuck &middot; sellerkit &middot; Version 1.0, effective 17 August 2026</p>
+<p class="meta">Mailtuck &middot; sellerkit &middot; Version 1.1, effective 27 August 2026</p>
 
 <p><strong>Mailtuck</strong> saves the email you have open in Gmail&trade;, together with its
-attachments, into a Notion database you choose. This page states exactly what it touches.</p>
+attachments, into a Notion database you choose. This page states exactly what it touches, where it
+sends it, and how it is protected.</p>
 
 <h2>1. We run no server and keep no copy of your mail</h2>
-<p>Mailtuck runs inside Google Apps Script under your own Google account. Your email travels from
-Google to Notion and nowhere else. It never passes through a server belonging to us, because we do
-not operate one. We hold no copy of your messages, so there is nothing on our side to breach.</p>
+<p>Mailtuck runs inside Google Apps Script under your own Google account. Your email goes from
+Google to Notion, and, only if you switch on the optional column filling described in section 4,
+to Anthropic. It never passes through a server belonging to us, because we do not operate one. We
+hold no copy of your messages, so there is nothing on our side to breach.</p>
 
 <h2>2. What Mailtuck can read</h2>
 <ul>
   <li><strong>Only the message you currently have open</strong>, via Google's
       <code>gmail.addons.current.message.readonly</code> permission. This is a narrow, contextual
-      permission &mdash; it does not grant access to your mailbox, your search history, or any other
+      permission: it does not grant access to your mailbox, your search history, or any other
       message.</li>
 </ul>
 <p>Mailtuck does <strong>not</strong> request permission to read your whole mailbox, your Google
@@ -50,30 +52,99 @@ cannot use them even if asked to.</p>
 subject, the message text, and the attachments. Attachments larger than your Notion plan's file
 limit are not uploaded; a line naming the file is written instead, so nothing disappears silently.</p>
 
-<h2>4. Your Notion credential</h2>
-<p>Your Notion integration secret is stored in Google's per-user property store, readable only by
-your own copy of the add-on. We never receive it. Selecting &ldquo;Disconnect Notion&rdquo; deletes
-it immediately.</p>
+<h2>4. The optional AI feature, and exactly what it sends</h2>
+<p>Mailtuck Pro can fill your Notion database's own columns from the email. That feature, and only
+that feature, sends message content to a third-party AI service.</p>
+<ul>
+  <li><strong>It is off unless you turn it on.</strong> It does nothing until you paste your own
+      Anthropic API key into the add-on, and you can switch it off again at any time and keep
+      using everything else.</li>
+  <li><strong>Where it goes:</strong> directly from Google Apps Script to Anthropic's API at
+      <code>https://api.anthropic.com</code>, over HTTPS. It does not pass through any server of
+      ours.</li>
+  <li><strong>What is sent:</strong> the subject, sender, date and the first 6,000 characters of
+      the body of the one message you are saving, plus the names and types of the columns in your
+      chosen Notion database. Attachments are never sent to the AI service.</li>
+  <li><strong>When:</strong> only at the moment you press Save, and only for that one message.</li>
+  <li><strong>Whose account:</strong> yours. The request is authenticated with your key and billed
+      to your Anthropic account, so your own agreement with Anthropic governs it. Their
+      <a href="https://www.anthropic.com/legal/consumer-terms">terms</a> and
+      <a href="https://www.anthropic.com/legal/privacy">privacy policy</a> apply to that request.</li>
+  <li><strong>What comes back:</strong> suggested column values. Anything that is not already a
+      property of your database is discarded before anything is written.</li>
+</ul>
 
-<h2>5. No tracking</h2>
+<h2>5. Limited Use of Google Workspace data</h2>
+<p>Mailtuck's use of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+User Data Policy</a>, including the Limited Use requirements. The use of raw or derived user data
+received from Workspace APIs will adhere to the Google User Data Policy, including the Limited Use
+requirements.</p>
+<p>In particular, Workspace user data obtained through Mailtuck is <strong>never</strong> used,
+transferred or sold to develop, train, retrain or improve any generalised or foundational machine
+learning or artificial intelligence model. The AI feature in section 4 uses an existing third-party
+model to produce an answer for you, at the moment you ask for it, under your own account. It does
+not contribute your mail to anyone's training data, and we ourselves receive no Workspace data at
+all, so we have none to train on, transfer, or sell.</p>
+
+<h2>6. Your credentials</h2>
+<p>Your Notion integration secret, and your Anthropic API key if you set one, are stored in
+Google's per-user property store, readable only by your own copy of the add-on. We never receive
+either of them. Selecting &ldquo;Disconnect Notion&rdquo; deletes the Notion secret immediately,
+and clearing the key field deletes the Anthropic key immediately.</p>
+
+<h2>7. How your data is protected</h2>
+<p>Mailtuck handles personal and potentially sensitive information: the contents of an email. These
+are the mechanisms that protect it.</p>
+<ul>
+  <li><strong>Encrypted in transit.</strong> Every outbound request is HTTPS (TLS 1.2 or better)
+      to a fixed list of hosts declared in the add-on's manifest:
+      <code>api.notion.com</code>, <code>api.anthropic.com</code> and our licence endpoint. The
+      add-on cannot reach any other host, and plain HTTP is not used anywhere.</li>
+  <li><strong>Encrypted at rest, and isolated per user.</strong> Credentials and settings live in
+      Google's Apps Script user property store, which Google encrypts at rest and scopes to a
+      single user of a single script. One user's copy cannot read another's.</li>
+  <li><strong>No data store of ours to protect.</strong> We operate no database, no logs of
+      message content, and no backups containing your mail. Message content exists in your Gmail,
+      in your Notion workspace, and in transit between them.</li>
+  <li><strong>Least privilege.</strong> The add-on requests three scopes and no more, none of them
+      a restricted scope, and the Gmail scope is the contextual one that exposes a single open
+      message rather than a mailbox.</li>
+  <li><strong>Access control on our side.</strong> No employee, contractor or subprocessor of ours
+      can access your Workspace data, because none of it reaches us. The Google Cloud project and
+      the Apps Script deployment are held in a single owner account protected by two-step
+      verification.</li>
+  <li><strong>Bounded exposure.</strong> Only the message you are actively saving is read, and the
+      AI feature sends at most the first 6,000 characters of it. Nothing is read in the background
+      and there is no scheduled or bulk access.</li>
+  <li><strong>Deletion on request.</strong> Uninstalling removes the stored credentials and
+      settings with them; see section 10.</li>
+  <li><strong>Incidents.</strong> If we ever become aware of a security problem affecting users, we
+      will publish it on this site and email affected users where we are able to contact them.</li>
+</ul>
+
+<h2>8. No tracking</h2>
 <p>No analytics, no telemetry, no advertising identifiers, no profiling. We do not sell or share
 data, because we never receive any.</p>
 
-<h2>6. Children</h2>
+<h2>9. Children</h2>
 <p>Mailtuck is a workplace tool and is not directed at children under 13.</p>
 
-<h2>7. Removing your data</h2>
+<h2>10. Removing your data</h2>
 <p>Uninstalling the add-on removes its stored credential and settings with it. Pages already
-created stay in your Notion workspace, where you control them.</p>
+created stay in your Notion workspace, where you control them. If you would like confirmation that
+nothing of yours remains with us, write to the address in section 12 and we will answer within
+five business days, noting that we hold no message content in the first place.</p>
 
-<h2>8. Changes</h2>
+<h2>11. Changes</h2>
 <p>If this policy changes we will update the version and date above.</p>
 
-<h2>9. Contact</h2>
+<h2>12. Contact</h2>
 <p><a href="mailto:globalmatchhub@gmail.com">globalmatchhub@gmail.com</a></p>
 
 <footer>Gmail&trade; and Google Workspace&trade; are trademarks of Google LLC. Notion is a
-trademark of Notion Labs, Inc. Mailtuck is an independent product, not affiliated with, endorsed
-by, or sponsored by Google or Notion Labs.<br>
+trademark of Notion Labs, Inc. Anthropic and Claude are trademarks of Anthropic PBC. Mailtuck is an
+independent product, not affiliated with, endorsed by, or sponsored by Google, Notion Labs or
+Anthropic.<br>
 Mailtuck by sellerkit &middot; <a href="/">mailtuck.lifeinsight-365.com</a></footer>
 </body></html>
