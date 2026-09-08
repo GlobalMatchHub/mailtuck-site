@@ -1,0 +1,12 @@
+{
+  // Mailtuck 제품 사이트. GitHub Pages 의 mailtuck.lifeinsight-365.com 을 옮긴 것이다.
+  // 그 도메인은 자동갱신을 끄기로 해 만료 예정이라 새 주소를 미리 세워둔다.
+  // ★ 구글 마켓 리스팅의 지원 URL 은 아직 옛 주소를 가리킨다. 승인된 리스팅을
+  //   건드리면 재심사가 걸리므로, 다음에 리스팅을 손볼 때 같이 바꾼다.
+  "name": "mailtuck-web",
+  "compatibility_date": "2026-08-01",
+  "assets": { "directory": "." },
+  "routes": [{ "pattern": "mailtuck.namubase.com", "custom_domain": true }],
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}
